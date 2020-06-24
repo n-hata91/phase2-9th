@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
   end
-  resources :chats, only: [:create]
-  resources :rooms, only: [:create,:show]
+  resources :chats, only: [:create, :show]
+  resources :rooms, only: [:create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

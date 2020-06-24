@@ -27,7 +27,7 @@
   <% else %>
 <%# @@ %>
         <% if @isRoom == true %>
-        <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="">チャットへ</a>
+        <p class="user-show-room"><a href="/chats/<%= @roomId %>" class="">チャットへ</a>
         <% else %>
           <%= form_for @room do |f| %>
             <%= fields_for @userRoom do |e| %>

@@ -9,7 +9,7 @@
       <% if @chats.present? %>
         <div id="chat_table">
           <% @chats.each do |chat| %>
-            <%= render 'chats/chat', chat: chat%>
+            <%= render 'chat', chat: chat%>
           <% end %>
         </div>
       <% end %>
