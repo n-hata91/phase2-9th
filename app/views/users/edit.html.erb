@@ -1,0 +1,25 @@
+
+  <h2>User info</h2>
+  <%= render 'partial/error_msg', obj: @user %>
+  <%= form_with model: @user do |f| %>
+
+  <div class="field">
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, class: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profile_image, "Image" %>
+    <%= f.attachment_field :profile_image, class: "user_image" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction, "Introduction" %>
+    <%= f.text_area :introduction, rows:'2', class: "introduction" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update User" %>
+  </div>
+    
+  <% end %>

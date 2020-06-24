@@ -1,0 +1,62 @@
+<div class="col-xs-3">
+  <h2>User info</h2>
+  <div>
+      <div>
+        <%= attachment_image_tag user, :profile_image, size: "100x100", class: ".attachment user profile_image fallback", fallback: "no_image.jpg" %>
+      </div>
+      <div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>name</th>
+              <th><%= user.name %></th>
+            </tr>
+            <tr>
+              <th>introduction</th>
+              <th><%= user.introduction %></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  <div class="row">
+  <% if user.id == current_user.id %>
+    <%= link_to edit_user_path(user.id) do %>
+      <span class="col-xs-12 btn btn-default glyphicon glyphicon-wrench" aria-hidden="true"></span>
+    <% end %>
+  <% else %>
+<%# @@ %>
+        <% if @isRoom == true %>
+        <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="">チャットへ</a>
+        <% else %>
+          <%= form_for @room do |f| %>
+            <%= fields_for @userRoom do |e| %>
+              <%= e.hidden_field :user_id, value: user.id %>
+            <% end %>
+            <%= f.submit "チャットを始める", class:"user-show-chat", style: "border:none;background-color:transparent;color:blue;text-decoration:underline;"%>
+          <% end %>
+        <% end %>
+
+      <span class="col-xs-12 btn btn-default glyphicon glyphicon-wrench" aria-hidden="true"></span>
+  <% end %>
+  </div>
+
+  <div>
+    <h2>New book</h2>
+    <div>
+      <%= form_with model: book, url: {controller: "books", action: "create"}, class: 'new_book', id: 'new_book' do |f| %>
+      <div class="field row">
+        <%= f.label :title, "Title" %>
+        <%= f.text_field :title, value: '', id: 'book_title', class: 'col-xs-12 book_title' %>
+      </div>
+      <div class="field row">
+        <%= f.label :body, "Opinion" %>
+        <%= f.text_area :body, value: '', id: 'book_body', class: 'col-xs-12 book_body' %>
+      </div>
+      <div class="actions row">
+        <%= f.submit "Create Book", class: 'btn btn-primary col-xs-12' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

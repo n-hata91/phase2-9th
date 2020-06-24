@@ -1,0 +1,84 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+
+// * {
+//   padding: 0;
+//   margin: 0;
+// }
+
+header {
+  color: white;
+  clear: both;
+}
+
+header .navbar-left span {
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+ul {
+  margin: 33px;
+}
+
+.body {
+  margin-top: 51px;
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+  width: 970px;
+}
+
+// =====navbar=====
+.navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 1px;
+}
+// ================
+
+// =====home=====
+a:visited {
+  color: #666;
+}
+// ==============
+
+
+
+// =====_userinfo=====
+div .field, div .actions {
+  margin-bottom: 10px;
+}
+// ===================
+
+// =====notification=====
+#error_explanation {
+  color: red;
+}
+
+#notice {
+  color: green;
+}
+
+// ================
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@media screen and (min-width: 768px) {  
+  .navbar {
+    border-radius: 0;
+  }
+}

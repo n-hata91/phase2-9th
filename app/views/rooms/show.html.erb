@@ -1,0 +1,23 @@
+<% @user_rooms.each do |user_room| %>
+  <% unless current_user.id == user_room.user_id %>
+    <h2 class="rooms-title"><%= user_room.user.name %>さんとのチャット</h2>
+  <% end %>
+<% end %>
+<hr>
+  <div class="posts col-xs-12 text-center">
+    <div class="chat">
+      <% if @chats.present? %>
+        <div id="chat_table">
+          <% @chats.each do |chat| %>
+            <%= render 'chats/chat', chat: chat%>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="posts col-xs-4">
+    <%= form_with model:@chat do |f| %>
+      <%= f.text_field :content, placeholder: "メッセージを入力" , class:"form-text-field" %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+    <% end %>
+</div>
